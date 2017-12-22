@@ -20,8 +20,8 @@
 			VALUES
 				(
 				SEQ_TB_BOARD_IDX.NEXTVAL,
-				#{title},
-				#{contents},
+				#{TITLE},
+				#{CONTENTS},
 				0,
 				'N',
 				SYSDATE,
@@ -34,7 +34,7 @@
 		<![CDATA[
 			UPDATE	tb_board
 			SET		hit_cnt = NVL(hit_cnt, 0)+1
-			WHERE	idx=#{idx}
+			WHERE	idx=#{IDX}
 		]]>
 	</update>
 	
@@ -42,16 +42,16 @@
 		<![CDATA[
 			SELECT	idx, hit_cnt, crea_id, crea_dtm, title, contents
 			FROM	tb_board
-			WHERE	idx=#{idx}
+			WHERE	idx=#{IDX}
 		]]>
 	</select>
 	
 	<update id="updateBoard" parameterType="hashmap">
 		<![CDATA[
 			UPDATE	tb_board
-			SET		title=#{title}
-					contents=#{contents}
-			WHERE	idx=#{idx}
+			SET		title=#{TITLE},
+					contents=#{CONTENTS}
+			WHERE	idx=#{IDX}
 		]]>
 	</update>
 	
@@ -59,7 +59,7 @@
 		<![CDATA[
 			UPDATE	tb_board
 			SET		del_gb = 'Y'
-			WHERE	idx=#{idx} 
+			WHERE	idx=#{IDX} 
 		]]>
 	</update>
 </mapper>

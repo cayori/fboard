@@ -1,4 +1,4 @@
-<%@ page language-"java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -65,14 +65,14 @@
 	});
 
 	function fn_openBoardWrite(){
-		var comSumbit = new ComSubmit();
+		var comSubmit = new ComSubmit();
 		comSubmit.setUrl("<c:url value='/sample/openBoardWrite.do' />");
 		comSubmit.submit();
 	}
 
 	function fn_openBoardDetail(obj){
 		var comSubmit = new ComSubmit();
-		somSubmit.setUrl("<c:url value='/sample/openBoardDetail.do' />");
+		comSubmit.setUrl("<c:url value='/sample/openBoardDetail.do' />");
 		comSubmit.addParam("IDX", obj.parent().find("#IDX").val());
 		comSubmit.submit();
 	}
